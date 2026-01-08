@@ -1,0 +1,19 @@
+[project]
+name = "app"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "dishka>=1.7.2",
+    "events",
+    "fastapi[standard]>=0.128.0",
+    "redis>=7.1.0",
+    "uvicorn>=0.40.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+events = { path = "../..", editable = true }

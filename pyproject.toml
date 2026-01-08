@@ -1,0 +1,24 @@
+[project]
+name = "events"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Alexander Starikov", email = "acherryjam@gmail.com" }]
+requires-python = ">=3.14"
+
+[project.optional-dependencies]
+dishka = [
+    "dishka>=1.7.2",
+]
+
+
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["ruff>=0.14.10"]
+
+[tool.uv.workspace]
+members = ["."]
+exclude = ["examples/*"]

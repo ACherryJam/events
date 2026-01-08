@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Chat</title>
+
+        <style>
+            ul {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            li {
+                flex: 0 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Chat</h1>
+
+        <form id="connection_form" action="" onsubmit="on_connection_form_submit(event)">
+            <label for="room">Room id:</label>
+            <input id="room" type="text" name="room" /> 
+    
+            <br/>
+                    
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" />
+    
+            <button id="room_connect">Connect</button>
+        </form>
+
+        <div hidden id="connection_data">
+            <p>
+                Connected as: <i id="username_text"></i> 
+                <button id="room_disconnect" onclick="disconnect_from_room()">Disconnect</button>
+            </p>
+
+            <label for="message">Message:</label>
+            <input id="message" type="text" name="message" />
+            <button id="send" onclick="on_send()">Send</button>
+        </div>
+
+        <h2>Messages:</h2>
+
+        <ul id="chat"></ul>
+
+        <script src="static/main.js" lang="js"></script>
+    </body>
+</html>

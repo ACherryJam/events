@@ -1,0 +1,30 @@
+[project]
+name = "user-service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Alexander Starikov", email = "acherryjam@gmail.com" }]
+requires-python = ">=3.14"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "common",
+    "dishka>=1.7.2",
+    "fastapi[standard]>=0.128.0",
+    "sqlalchemy>=2.0.45",
+    "uvicorn>=0.40.0",
+]
+
+[project.scripts]
+user-service = "user_service.bootstrap.webserver:main"
+
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+common = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]

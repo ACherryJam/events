@@ -1,0 +1,15 @@
+services:
+  rabbitmq:
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASSWORD=guest
+    hostname: localhost
+    ports:
+      - "5672:5672"
+    healthcheck:
+      test: "rabbitmq-diagnostics check_running -q"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
