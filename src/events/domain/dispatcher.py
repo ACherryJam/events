@@ -2,7 +2,7 @@ import asyncio
 from typing import Iterable
 
 from events.domain.event import DomainEvent
-from events.domain.entity import DomainEntity
+from events.domain.aggregate import AggregateRoot
 from events.domain.event_handler.factory import DomainEventHandlerFactory
 
 
@@ -21,7 +21,7 @@ class DomainEventDispatcher:
     def store_events(self, events: Iterable[DomainEvent]) -> None:
         self.events.extend(events)
     
-    def from_entity(self, entity: DomainEntity) -> None:
+    def from_entity(self, entity: AggregateRoot) -> None:
         self.store_events(entity.pop_events())
     
     async def process(self) -> None:

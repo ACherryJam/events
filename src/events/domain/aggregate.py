@@ -1,11 +1,11 @@
 from .event import DomainEvent
 
 
-class DomainEntity:
+class AggregateRoot:
     def __init__(self) -> None:
         self.events: list[DomainEvent] = []
     
-    def store_event(self, event: DomainEvent) -> None:
+    def publish_event(self, event: DomainEvent) -> None:
         self.events.append(event)
     
     def pop_events(self) -> list[DomainEvent]:

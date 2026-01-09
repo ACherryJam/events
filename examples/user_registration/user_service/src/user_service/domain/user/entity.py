@@ -1,5 +1,5 @@
 import uuid
-from events.domain.entity import DomainEntity
+from events.domain.aggregate import AggregateRoot
 
 from user_service.domain.user.events import UserRegistered
 
@@ -9,7 +9,7 @@ class UserId:
         self.value = value
 
 
-class User(DomainEntity):
+class User(AggregateRoot):
     def __init__(
         self,
         id: UserId,
@@ -23,5 +23,5 @@ class User(DomainEntity):
         self.password = password  # Hmmm, I wonder if that's safe!
 
     def initialize(self):
-        self.store_event(UserRegistered(self))
+        self.publish_event(UserRegistered(self))
     
