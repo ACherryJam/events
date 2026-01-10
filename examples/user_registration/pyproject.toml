@@ -12,3 +12,8 @@ members = [
     "user_service",
     "email_service",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]

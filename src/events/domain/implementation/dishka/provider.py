@@ -1,4 +1,4 @@
-from dishka import Provider, Scope, from_context, provide
+from dishka import Provider, Scope, provide
 
 from events.domain.dispatcher import DomainEventDispatcher
 from events.domain.event_handler.factory import DomainEventHandlerFactory

@@ -1,4 +1,3 @@
-import json
 from fastapi import WebSocket
 
 from app.dto import ReceivedChatMessageDTO, UserConnectedDTO, UserDisconnectedDTO

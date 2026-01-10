@@ -1,4 +1,4 @@
-from dishka import AsyncContainer, Scope
+from dishka import AsyncContainer
 
 from events.domain.event import DomainEvent
 from events.domain.event_handler import DomainEventHandler, DomainEventHandlerFactory

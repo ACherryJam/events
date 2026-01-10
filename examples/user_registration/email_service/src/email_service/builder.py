@@ -1,7 +1,5 @@
 import email
 import email.message
-import email.policy
-import smtplib
 
 
 def get_email_payload(recipient: str) -> str:

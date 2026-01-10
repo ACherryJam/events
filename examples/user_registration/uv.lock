@@ -861,6 +861,16 @@ name = "user-registration"
 version = "0.1.0"
 source = { virtual = "." }
 
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.14.10" }]
+
 [[package]]
 name = "user-service"
 version = "0.1.0"

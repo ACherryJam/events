@@ -1,20 +1,13 @@
 import json
-from typing import Any, Iterable
-# import logging
+from typing import Iterable
 
-from sqlalchemy import delete, select
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from events.integration.bus import IntegrationEventBus
 from events.integration.event import IntegrationEvent
-
-from common.utils import get_event_topic
 
 from user_service.infrastructure.outbox import Outbox
 from user_service.infrastructure.outbox.outbox import OutboxItem
 from user_service.infrastructure.persistence.models.outbox import OutboxEventModel
-
-
-# logger = logging.getLogger(__name__)
 
 
 class SQLOutboxItem(OutboxItem):

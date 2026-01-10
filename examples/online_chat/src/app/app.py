@@ -102,10 +102,10 @@ async def chat(
                         )
                     case _:
                         raise Exception("Unknown message")
-            except:
+            except Exception as e:
                 failure_result = FailureResultDTO(
                     request_id=dto.request_id,
-                    reason="idk"
+                    reason=repr(e)
                 )
                 await socket.send_text(failure_result.model_dump_json())
             else:

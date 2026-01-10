@@ -17,3 +17,8 @@ build-backend = "uv_build"
 
 [tool.uv.sources]
 events = { path = "../..", editable = true }
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.11",
+]
