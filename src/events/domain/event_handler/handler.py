@@ -1,12 +1,15 @@
 import abc
-from typing import ClassVar, Protocol, get_args, get_origin
+from typing import ClassVar, Optional, Protocol, get_args, get_origin
 
 from events.domain.event import DomainEvent
 
 
-class HandlerRegistry:
-    def __init__(self) -> None:
-        self.handlers: dict[type[DomainEvent], list[type["DomainEventHandler"]]] = {}
+class DomainEventHandlerRegistry:
+    def __init__(
+        self, 
+        handlers: Optional[dict[type[DomainEvent], list[type["DomainEventHandler"]]]] = None
+    ) -> None:
+        self.handlers = handlers or {}
     
     def add[E: DomainEvent](
         self,
@@ -30,7 +33,7 @@ class HandlerRegistry:
 
 
 class DomainEventHandler[E: DomainEvent](Protocol):
-    registry: ClassVar[HandlerRegistry] = HandlerRegistry()
+    registry: ClassVar[DomainEventHandlerRegistry] = DomainEventHandlerRegistry()
 
     def __init_subclass__(cls) -> None:
         for base in cls.__orig_bases__: # type: ignore
