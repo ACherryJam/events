@@ -14,7 +14,7 @@ class DomainEventHandlerRegistry:
     def add[E: DomainEvent](
         self,
         event: type[E],
-        handler: type[DomainEventHandler[E]]
+        handler: type["DomainEventHandler[E]"]
     ) -> None:
         if event not in self.handlers:
             self.handlers[event] = []
@@ -23,12 +23,12 @@ class DomainEventHandlerRegistry:
     def remove[E: DomainEvent](
         self,
         event: type[E],
-        handler: type[DomainEventHandler[E]]
+        handler: type["DomainEventHandler[E]"]
     ) -> None:
         if event in self.handlers:
             self.handlers[event].remove(handler)
     
-    def get[E: DomainEvent](self, event: type[E]) -> list[type[DomainEventHandler[E]]]:
+    def get[E: DomainEvent](self, event: type[E]) -> list[type["DomainEventHandler[E]"]]:
         return self.handlers.get(event, [])
 
 

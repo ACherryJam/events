@@ -10,15 +10,15 @@ class EventKey:
 
 class EventRegistry:
     def __init__(self) -> None:
-        self.events: dict[EventKey, type[IntegrationEvent]] = {}
+        self.events: dict[EventKey, type["IntegrationEvent"]] = {}
 
-    def add(self, key: EventKey, event_type: type[IntegrationEvent]):
+    def add(self, key: EventKey, event_type: type["IntegrationEvent"]):
         if key in self.events:
             raise ValueError(f"Tried to add event type {event_type} when "
                              f"event {self.events[key]} is already registered under the key {key}")
         self.events[key] = event_type
 
-    def get(self, key: EventKey) -> type[IntegrationEvent]:
+    def get(self, key: EventKey) -> type["IntegrationEvent"]:
         return self.events[key]
 
 
